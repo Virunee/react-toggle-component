@@ -10,8 +10,8 @@ class ToggleContainer extends React.Component {
   }
 	
 	render() {
-        let styleclass = this.state.correct ? "correctStyle" : "incorrectStyle";
-        let message = this.state.correct ? "The answer is correct" : "The answer is incorrect";
+        // let styleclass = this.state.correct ? "correctStyle" : "incorrectStyle";
+        // let message = this.state.correct ? "The answer is correct" : "The answer is incorrect";
 	  
 		return (
 			<div className={"toggleComponentContainer " + this.state.styleClass}>

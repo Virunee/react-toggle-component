@@ -1,5 +1,6 @@
 import React from 'react';
 import "../App.css";
+import { getToggleState, checkIfCorrect } from '../checkIfCorrect';
 
 class ToggleButton extends React.Component {
 	
@@ -10,21 +11,13 @@ class ToggleButton extends React.Component {
   }    
 
   componentDidUpdate() {
-    var togglebuttons = document.querySelectorAll('.toggleButtonContainer');
-    var combination = [];
+        const combination = "0,1,1";
+        var toggleState = getToggleState().toString();
+        console.log(combination);
 
-    for (var i = 0; i<togglebuttons.length; i++) {
-    var button = togglebuttons[i].querySelectorAll('div')[0];
-    if(button.className === "activeStyle") {
-        combination.push(1);
-    } else {
-        combination.push(0);
-    }
-    }
-    if(combination === this.props.combination) {
-        this.setState({correct: true});
-    }
-    console.log(combination);
+        if (toggleState === combination) {
+            console.log("toggle state matches combination!");
+        }
     }
 	
 	handleClick() {
