@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #FFFFFF;
+  font-family: "Muli", sans-serif;
 }
 
 .App-logo {
@@ -20,6 +22,69 @@
 
 .App-intro {
   font-size: large;
+}
+
+.toggleComponentContainer {
+  border-radius: 8px;
+  box-shadow: 0 2px 12px 6px rgba(167, 196, 220, 0.5);
+  width: 50%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 50px;
+}
+
+.correctStyle {
+  background: linear-gradient(#47e4c1, #07cddd);
+  color: #00b093;
+}
+
+.incorrectStyle {
+  background: linear-gradient(rgba(250, 145, 97, 0.7), rgba(247, 59, 28, 0.69));
+  color: #e66549;
+}
+
+.activeStyle {
+  background-color: rgba(249, 249, 249, 0.5);
+  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  z-index: -100;
+}
+
+.inactiveStyle {
+  color: white;
+  font-weight: bold;
+}
+
+.toggleButtonContainer {
+  display: table;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  border-radius: 25px;
+  border: solid 1px white
+}
+
+.message {
+  width: 728px;
+  height: 18px;
+  font-family: Muli;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.4px;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 40px;
+}
+
+.toggleButtonContainer div {
+  display: table-cell;
+  padding: 10px;
+  border-radius: 25px;
+  width: 50%;
 }
 
 @keyframes App-logo-spin {
