@@ -6,7 +6,7 @@ import ToggleContainer from './components/ToggleContainer';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: false};
+    this.state = {correct: false};
   }
 
   render() {
@@ -18,7 +18,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Virunee's Toggle Component</h1>
         </header>
-        <ToggleContainer message="This is a message!" combination={lock}/>
+        <ToggleContainer combination={lock}/>
       </div>
     );
   }

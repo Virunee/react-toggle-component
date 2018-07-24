@@ -4,40 +4,21 @@ import ToggleButton from './ToggleButton'
 
 class ToggleContainer extends React.Component {
 	
-	constructor() {
-		super();
-        this.state = {style: "incorrectStyle"};
+	constructor(props) {
+		super(props);
+        this.state = {styleClass: "incorrectStyle", message: "The answer is incorrect"};
   }
-
-  componentDidUpdate() {
-    var togglebuttons = document.querySelectorAll('.toggleButtonContainer');
-    var combination = [];
-
-    for (var i = 0; i<togglebuttons.length; i++) {
-    var button = togglebuttons[i].querySelectorAll('div')[0];
-    if(button.className === "activeStyle") {
-        combination.push(1);
-    } else {
-        combination.push(0);
-    }
-    }
-    if(combination === this.props.combination) {
-        this.setState({style: "correctStyle"});
-    } else {
-        this.setState({style: "incorrectStyle"});
-    }
-    console.log(combination);
-    }
-		
+	
 	render() {
-      
+        let styleclass = this.state.correct ? "correctStyle" : "incorrectStyle";
+        let message = this.state.correct ? "The answer is correct" : "The answer is incorrect";
 	  
 		return (
-			<div className={"toggleComponentContainer " + this.state.style}>
+			<div className={"toggleComponentContainer " + this.state.styleClass}>
 				<ToggleButton leftText="Hot" rightText="Cold"/>
                 <ToggleButton leftText="Option 1" rightText="Option 2"/>
                 <ToggleButton leftText="Active" rightText="Not active"/>
-                <p className="message">{this.props.message}</p>
+                <p className="message">{this.state.message}</p>
 			</div>
 		);
 	}
