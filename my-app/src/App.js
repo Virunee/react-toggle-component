@@ -8,7 +8,9 @@ class App extends Component {
     super(props);
     this.state = {value: false};
   }
+
   render() {
+    let lock = [0,1,1];
     
     return (
       <div className="App">
@@ -16,7 +18,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Virunee's Toggle Component</h1>
         </header>
-        <ToggleContainer message="This is a message!" correct={true}/>
+        <ToggleContainer message="This is a message!" combination={lock}/>
       </div>
     );
   }

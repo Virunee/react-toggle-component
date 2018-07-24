@@ -7,11 +7,11 @@ class ToggleButton extends React.Component {
 		super();
 		this.state = {leftActive: true, rightActive: false};
 		this.handleClick = this.handleClick.bind(this);
-  }
+  }    
 	
 	handleClick() {
         this.setState({leftActive: !this.state.leftActive});
-        this.setState({rightActive: !this.state.rightActive});
+        this.setState({rightActive: !this.state.rightActive});       
   }
 	
 	render() {

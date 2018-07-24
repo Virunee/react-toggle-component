@@ -6,15 +6,34 @@ class ToggleContainer extends React.Component {
 	
 	constructor() {
 		super();
-		this.state = {};
+        this.state = {style: "incorrectStyle"};
   }
+
+  componentDidUpdate() {
+    var togglebuttons = document.querySelectorAll('.toggleButtonContainer');
+    var combination = [];
+
+    for (var i = 0; i<togglebuttons.length; i++) {
+    var button = togglebuttons[i].querySelectorAll('div')[0];
+    if(button.className === "activeStyle") {
+        combination.push(1);
+    } else {
+        combination.push(0);
+    }
+    }
+    if(combination === this.props.combination) {
+        this.setState({style: "correctStyle"});
+    } else {
+        this.setState({style: "incorrectStyle"});
+    }
+    console.log(combination);
+    }
 		
 	render() {
-
-        let container_style = this.props.correct ? "correctStyle" : "incorrectStyle";
+      
 	  
 		return (
-			<div className={"toggleComponentContainer " + container_style}>
+			<div className={"toggleComponentContainer " + this.state.style}>
 				<ToggleButton leftText="Hot" rightText="Cold"/>
                 <ToggleButton leftText="Option 1" rightText="Option 2"/>
                 <ToggleButton leftText="Active" rightText="Not active"/>
