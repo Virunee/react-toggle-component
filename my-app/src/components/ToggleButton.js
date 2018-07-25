@@ -1,6 +1,6 @@
 import React from 'react';
 import "../App.css";
-import { getToggleState, checkIfCorrect } from '../checkIfCorrect';
+import { getToggleState, checkIfCorrect } from '../functions';
 import {correctCombination} from '../config';
 
 class ToggleButton extends React.Component {
@@ -12,9 +12,6 @@ class ToggleButton extends React.Component {
   }    
 
     componentDidUpdate(prevProps,prevState) {
-        // console.log(prevState.correctStyle);
-        // console.log(this.state.correctStyle);
-        // console.log("****");
         if(checkIfCorrect(correctCombination,getToggleState())) {
             if(prevState.correctStyle !== "correctStyle") {
                 this.setState({correctStyle: "correctStyle"});
@@ -26,19 +23,6 @@ class ToggleButton extends React.Component {
                 this.props.handleChange(false);
             }
         }
-        // if(prevState.correctStyle !== this.state.correctStyle) {
-        //     if(checkIfCorrect(correctCombination,getToggleState())) {
-        //         //this.setState({correctStyle: "correctStyle"});
-        //         console.log(prevState);
-        //         console.log(prevProps);
-        //         console.log(this.state.correctStyle);
-        //         // if(prevState.correctStyle !== this.state.correctStyle) {
-        //         //     this.setState({correctStyle: "correctStyle"});
-        //         //     console.log("I am working!");
-        //         // }
-        //     }
-        // }
-        
     }
 	
 	handleClick() {

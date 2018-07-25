@@ -2,16 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ToggleContainer from './components/ToggleContainer';
-import {correctCombination} from './config';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {correct: false};
-  }
-
-  componentDidUpdate() {
-    console.log(this.state.correct);
   }
 
   handleChange = (response) => {
