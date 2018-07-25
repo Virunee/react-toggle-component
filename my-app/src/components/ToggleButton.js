@@ -1,23 +1,44 @@
 import React from 'react';
 import "../App.css";
 import { getToggleState, checkIfCorrect } from '../checkIfCorrect';
+import {correctCombination} from '../config';
 
 class ToggleButton extends React.Component {
 	
 	constructor(props) {
 		super(props);
-		this.state = {leftActive: true, rightActive: false, value: 1};
+		this.state = {leftActive: true, rightActive: false, correctStyle: "undefinedstyle"};
 		this.handleClick = this.handleClick.bind(this);
   }    
 
-  componentDidUpdate() {
-        const combination = "0,1,1";
-        var toggleState = getToggleState().toString();
-        console.log(combination);
-
-        if (toggleState === combination) {
-            console.log("toggle state matches combination!");
+    componentDidUpdate(prevProps,prevState) {
+        // console.log(prevState.correctStyle);
+        // console.log(this.state.correctStyle);
+        // console.log("****");
+        if(checkIfCorrect(correctCombination,getToggleState())) {
+            if(prevState.correctStyle !== "correctStyle") {
+                this.setState({correctStyle: "correctStyle"});
+                this.props.handleChange(true);
+            }
+        } else {
+            if(prevState.correctStyle !== "incorrectStyle") {
+                this.setState({correctStyle: "incorrectStyle"});
+                this.props.handleChange(false);
+            }
         }
+        // if(prevState.correctStyle !== this.state.correctStyle) {
+        //     if(checkIfCorrect(correctCombination,getToggleState())) {
+        //         //this.setState({correctStyle: "correctStyle"});
+        //         console.log(prevState);
+        //         console.log(prevProps);
+        //         console.log(this.state.correctStyle);
+        //         // if(prevState.correctStyle !== this.state.correctStyle) {
+        //         //     this.setState({correctStyle: "correctStyle"});
+        //         //     console.log("I am working!");
+        //         // }
+        //     }
+        // }
+        
     }
 	
 	handleClick() {

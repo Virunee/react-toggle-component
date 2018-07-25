@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ToggleContainer from './components/ToggleContainer';
+import {correctCombination} from './config';
 
 class App extends Component {
   constructor(props) {
@@ -9,8 +10,15 @@ class App extends Component {
     this.state = {correct: false};
   }
 
+  componentDidUpdate() {
+    console.log(this.state.correct);
+  }
+
+  handleChange = (response) => {
+    this.setState({correct: response});
+  }
+
   render() {
-    let lock = [0,1,1];
     
     return (
       <div className="App">
@@ -18,7 +26,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Virunee's Toggle Component</h1>
         </header>
-        <ToggleContainer combination={lock}/>
+        <ToggleContainer handleChange={this.handleChange} style={this.state.correct}/>
       </div>
     );
   }

@@ -1,0 +1,1 @@
+export var correctCombination = "0,1,1";
